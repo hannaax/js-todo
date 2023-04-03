@@ -12,7 +12,9 @@ const saveToDos = () => {
 
 const deleteToDo = (e) => {
   const li = e.target.parentElement;
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
   li.remove();
+  saveToDos();
 };
 
 const paintToDo = (newTodo) => {
@@ -26,8 +28,6 @@ const paintToDo = (newTodo) => {
   li.appendChild(span);
   li.appendChild(button);
   todoList.appendChild(li);
-  // 로컬스토리지 추가
-  // 불러와서 화면에 띄움
 };
 
 const handleToDoSubmit = (e) => {
